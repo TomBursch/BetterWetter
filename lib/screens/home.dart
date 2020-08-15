@@ -4,7 +4,7 @@ import 'package:BetterWetter/bloc/home/bloc.dart';
 import 'package:BetterWetter/components/home/noLocations.dart';
 import 'package:BetterWetter/components/home/weatherDisplay.dart';
 import 'package:BetterWetter/l10n/bwLocalizationDelegate.dart';
-import 'package:BetterWetter/screens/overview.dart';
+import 'package:BetterWetter/screens/search.dart';
 import 'package:BetterWetter/screens/settings.dart';
 import 'package:BetterWetter/transitions/bwTransition.dart';
 import 'package:extended_nested_scroll_view/extended_nested_scroll_view.dart'
@@ -66,17 +66,21 @@ class _HomeScreenState extends State<HomeScreen> {
                   centerTitle: true,
                   actions: [
                     IconButton(
-                      icon: Icon(Icons.view_list),
-                      onPressed: () => Navigator.push(
-                        context,
-                        bwTransition(
-                          context: context,
-                          builder: (context) => BlocProvider.value(
-                            value: _bloc,
-                            child: OverviewScreen(),
+                      icon: Icon(Icons.add),
+                      onPressed: () async {
+                        final newIndex = await Navigator.push<int>(
+                          context,
+                          bwTransition(
+                            context: context,
+                            builder: (context) => BlocProvider.value(
+                              value: _bloc,
+                              child: SearchScreen(),
+                            ),
                           ),
-                        ),
-                      ),
+                        );
+                        if (newIndex != null)
+                          _pageController.jumpToPage(newIndex);
+                      },
                     ),
                   ],
                   title: SmoothPageIndicator(

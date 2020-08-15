@@ -6,7 +6,7 @@ import 'package:geolocator/geolocator.dart';
 import 'bloc.dart';
 
 class SearchBloc extends Bloc<SearchEvent, SearchState> {
-  SearchBloc() : super(SearchStateResult());
+  SearchBloc() : super(SearchStateOverview());
 
   @override
   Stream<SearchState> mapEventToState(SearchEvent event) async* {
@@ -20,7 +20,7 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
         } catch (e) {}
         yield SearchStateResult(searchTerm: state.searchTerm, placemark: query);
       } else {
-        yield SearchStateResult();
+        yield SearchStateOverview();
       }
     }
     if (event is SearchSelect) {

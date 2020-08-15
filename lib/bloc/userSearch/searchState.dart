@@ -14,6 +14,10 @@ class SearchStateLoading extends SearchState {
   SearchStateLoading({String searchTerm}) : super(searchTerm: searchTerm);
 }
 
+class SearchStateOverview extends SearchState {
+  SearchStateOverview({String searchTerm}) : super(searchTerm: searchTerm);
+}
+
 class SearchStateResult extends SearchState {
   final List<Placemark> placemark;
 
