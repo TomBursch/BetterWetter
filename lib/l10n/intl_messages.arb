@@ -1,0 +1,174 @@
+{
+  "@@last_modified": "2020-08-15T00:24:47.104127",
+  "title": "BetterWetter",
+  "@title": {
+    "description": "Title for the BetterWetter application",
+    "type": "text",
+    "placeholders": {}
+  },
+  "add": "Add",
+  "@add": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "cancel": "Cancel",
+  "@cancel": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "back": "Back",
+  "@back": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "save": "Save",
+  "@save": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "location": "Location",
+  "@location": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "faq": "FAQ",
+  "@faq": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "done": "Done",
+  "@done": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "delete": "Delete",
+  "@delete": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "remove": "Remove",
+  "@remove": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "privacy": "Privacy",
+  "@privacy": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "error": "Error",
+  "@error": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "edit": "Edit",
+  "@edit": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "date": "Date",
+  "@date": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "you": "You",
+  "@you": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "info": "Info",
+  "@info": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "yes": "Yes",
+  "@yes": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "no": "No",
+  "@no": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "maybe": "Maybe",
+  "@maybe": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "search": "Search",
+  "@search": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "home": "Home",
+  "@home": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "website": "Website",
+  "@website": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "settings": "Settings",
+  "@settings": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "now": "Now",
+  "@now": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "sunrise": "Sunrise",
+  "@sunrise": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "sunset": "Sunset",
+  "@sunset": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "weatherService": "Weather Service",
+  "@weatherService": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "feelsLike": "Feels like",
+  "@feelsLike": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "humidity": "Humidity",
+  "@humidity": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "uvIndex": "UV Index",
+  "@uvIndex": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "windspeed": "Windspeed",
+  "@windspeed": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "pressure": "Pressure",
+  "@pressure": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "visibility": "Visibility",
+  "@visibility": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "clouds": "Clouds",
+  "@clouds": {
+    "type": "text",
+    "placeholders": {}
+  }
+}
