@@ -29,23 +29,4 @@ class Weather {
     this.desc,
     this.icon,
   });
-
-  factory Weather.fromJson(
-      Map<String, dynamic> data, Map<String, String> iconMap) {
-    return Weather(
-      time: DateTime.fromMillisecondsSinceEpoch(data['dt'] * 1000, isUtc: true),
-      feelsLike: data['feels_like'].toDouble(),
-      humidity: data['humidity'],
-      clouds: data['clouds'],
-      temp: data['temp'].toDouble(),
-      uvIndex: data['uvi'],
-      pressure: data['pressure'],
-      windSpeed: data['wind_speed'].toDouble(),
-      windDirection: data['wind_deg'],
-      visibility: data['visibility'],
-      name: data['weather'][0]['main'],
-      desc: data['weather'][0]['description'],
-      icon: iconMap[data['weather'][0]['icon']],
-    );
-  }
 }

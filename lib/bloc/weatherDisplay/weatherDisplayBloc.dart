@@ -1,5 +1,4 @@
 import 'package:BetterWetter/app.dart';
-import 'package:BetterWetter/services/weatherService.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:geolocator/geolocator.dart';
 

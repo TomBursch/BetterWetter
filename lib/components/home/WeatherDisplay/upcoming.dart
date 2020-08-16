@@ -22,12 +22,14 @@ class UpcomingWeatherWidget extends StatelessWidget {
     return ExpansionTile(
       title: Row(
         children: [
-          Image(
-            image: AssetImage('./assets/images/${weather.icon}.png'),
-            alignment: Alignment.center,
-            isAntiAlias: true,
-            height: 50,
-            width: 50,
+          Padding(
+            padding: const EdgeInsets.fromLTRB(0, 8, 12, 8),
+            child: Image(
+              image: AssetImage('./assets/images/${weather.icon}.png'),
+              isAntiAlias: true,
+              fit: BoxFit.contain,
+              height: 32,
+            ),
           ),
           Expanded(
             child: Text(

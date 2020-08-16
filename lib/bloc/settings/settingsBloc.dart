@@ -22,7 +22,9 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
       add(SettingsUpdate(themeMode: ThemeMode.values[i ?? 0]));
     });
     storage.readInt(key: "weatherService").then((i) {
-      add(SettingsUpdate(weatherService: WeatherService.services[i ?? 0]));
+      add(SettingsUpdate(
+          weatherService: WeatherService
+              .services[(i ?? 0) % WeatherService.services.length]));
     });
   }
 

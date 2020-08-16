@@ -3,7 +3,9 @@ import 'package:BetterWetter/services/openWeatherMap.dart';
 import 'package:geolocator/geolocator.dart';
 
 abstract class WeatherService {
-  static final List<WeatherService> services = [OpenWeatherMap.instance];
+  static final List<WeatherService> services = [
+    OpenWeatherMap.instance,
+  ];
 
   String getName();
 

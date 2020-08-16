@@ -71,7 +71,7 @@ class _BetterWetterAppState extends State<BetterWetterApp> {
   }
 
   void _setSystemUI(BuildContext context) {
-    switch (ThemeMode.system) {
+    switch (_settingsBloc.state.themeMode) {
       case ThemeMode.system:
         final Brightness brightnessValue =
             MediaQuery.of(context).platformBrightness;
@@ -83,22 +83,33 @@ class _BetterWetterAppState extends State<BetterWetterApp> {
       light:
       case ThemeMode.light:
         SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-          statusBarColor: Colors.transparent,
+          statusBarColor: BWThemes.appTheme.appBarTheme.color,
           statusBarBrightness: Brightness.light,
           statusBarIconBrightness: Brightness.dark,
-          systemNavigationBarColor: BWColors.backgroundLight,
-          systemNavigationBarDividerColor: BWColors.backgroundLight,
+          systemNavigationBarColor: BWThemes.appTheme.backgroundColor,
+          systemNavigationBarDividerColor: BWThemes.appTheme.backgroundColor,
           systemNavigationBarIconBrightness: Brightness.dark,
         ));
         break;
       dark:
       case ThemeMode.dark:
         SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-          statusBarColor: Colors.transparent,
+          statusBarColor: (_settingsBloc.state.darkThemeModeOled
+                  ? BWThemes.appThemeBlack
+                  : BWThemes.appThemeDark)
+              .appBarTheme
+              .color,
           statusBarBrightness: Brightness.dark,
           statusBarIconBrightness: Brightness.light,
-          systemNavigationBarColor: Colors.black,
-          systemNavigationBarDividerColor: Colors.black,
+          systemNavigationBarColor: (_settingsBloc.state.darkThemeModeOled
+                  ? BWThemes.appThemeBlack
+                  : BWThemes.appThemeDark)
+              .backgroundColor,
+          systemNavigationBarDividerColor:
+              (_settingsBloc.state.darkThemeModeOled
+                      ? BWThemes.appThemeBlack
+                      : BWThemes.appThemeDark)
+                  .backgroundColor,
           systemNavigationBarIconBrightness: Brightness.light,
         ));
         break;

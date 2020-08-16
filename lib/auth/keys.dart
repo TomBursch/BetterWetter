@@ -4,11 +4,21 @@ import 'package:flutter/services.dart' show rootBundle;
 
 class Enviroment {
   final String openWeatherApiKey;
+  final String accuWeatherApiKey;
+  final String weatherStackApiKey;
 
-  Enviroment({this.openWeatherApiKey = ""});
+  Enviroment({
+    this.openWeatherApiKey = "",
+    this.accuWeatherApiKey = "",
+    this.weatherStackApiKey = "",
+  });
 
   factory Enviroment.fromJson(Map<String, dynamic> jsonMap) {
-    return new Enviroment(openWeatherApiKey: jsonMap["open_weather_api_key"]);
+    return new Enviroment(
+      openWeatherApiKey: jsonMap["open_weather_api_key"],
+      accuWeatherApiKey: jsonMap["accu_weather_api_key"],
+      weatherStackApiKey: jsonMap["weather_stack_api_key"],
+    );
   }
 }
 

@@ -6,7 +6,6 @@ import 'package:BetterWetter/bloc/weatherDisplay/bloc.dart';
 import 'package:BetterWetter/components/home/WeatherDisplay/today.dart';
 import 'package:BetterWetter/components/home/WeatherDisplay/upcoming.dart';
 import 'package:BetterWetter/l10n/bwLocalizationDelegate.dart';
-import 'package:BetterWetter/services/weatherService.dart';
 import 'package:extended_nested_scroll_view/extended_nested_scroll_view.dart'
     as extended;
 import 'package:flutter/material.dart';
@@ -58,6 +57,10 @@ class _WeatherDisplayState extends State<WeatherDisplay> {
                   HomeScreenLocalLocationChange(state.placemark?.locality ??
                       BWLocalizations.of(context).location));
           }
+          if (state is WeatherDisplayError) {
+            _refreshCompleter?.complete();
+            _refreshCompleter = Completer();
+          }
         },
         builder: (context, state) {
           if (state is WeatherDisplayLoaded || state.locationWeather != null)
@@ -75,10 +78,7 @@ class _WeatherDisplayState extends State<WeatherDisplay> {
                     SummaryWeatherWidget(
                         current: state.locationWeather.current),
                     const SizedBox(height: 35),
-                    TodayWeatherWidget(
-                      today: state.locationWeather.today,
-                      current: state.locationWeather.current,
-                    ),
+                    TodayWeatherWidget(locationWeather: state.locationWeather),
                     const SizedBox(height: 15),
                     CurrentWeatherWidget(
                         current: state.locationWeather.current),

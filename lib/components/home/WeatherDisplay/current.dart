@@ -1,5 +1,6 @@
 import 'package:BetterWetter/l10n/bwLocalizationDelegate.dart';
 import 'package:BetterWetter/models/weatherCurrent.dart';
+import 'package:BetterWetter/themes/Icons.dart';
 import 'package:BetterWetter/themes/styles.dart';
 import 'package:flutter/material.dart';
 
@@ -14,7 +15,6 @@ class CurrentWeatherWidget extends StatelessWidget {
     return Container(
       decoration: BWDecoration.defaultBoxDecoration(context),
       margin: const EdgeInsets.symmetric(horizontal: 25, vertical: 15),
-      padding: const EdgeInsets.all(20),
       child: GridView.count(
         primary: false,
         crossAxisSpacing: 20,
@@ -22,49 +22,50 @@ class CurrentWeatherWidget extends StatelessWidget {
         crossAxisCount: MediaQuery.of(context).size.width > 600 ? 4 : 2,
         shrinkWrap: true,
         childAspectRatio: MediaQuery.of(context).size.width /
-            (MediaQuery.of(context).size.height / 5),
+            (MediaQuery.of(context).size.height / 6),
+        padding: const EdgeInsets.all(20),
         children: [
           if (current.feelsLike != null)
             gridItem(
               context,
               BWLocalizations.of(context).feelsLike,
               (current.feelsLike - 273.15).toStringAsFixed(0) + "°C",
-              Icon(Icons.face),
+              Icon(BetterWetterIcons.temperature),
             ),
           if (current.humidity != null)
             gridItem(
               context,
               BWLocalizations.of(context).humidity,
               current.humidity.toString() + "%",
-              Icon(Icons.filter_drama),
+              Icon(BetterWetterIcons.humidity),
             ),
           if (current.uvIndex != null)
             gridItem(
               context,
               BWLocalizations.of(context).uvIndex,
               current.uvIndex.toStringAsFixed(0),
-              Icon(Icons.brightness_low),
+              Icon(BetterWetterIcons.sun),
             ),
           if (current.windSpeed != null)
             gridItem(
               context,
               BWLocalizations.of(context).windspeed,
               current.windSpeed.toStringAsPrecision(1) + "m/s",
-              Icon(Icons.flag),
+              Icon(BetterWetterIcons.wind),
             ),
-          if (current.feelsLike != null)
+          if (current.pressure != null)
             gridItem(
               context,
               BWLocalizations.of(context).pressure,
               current.pressure.toString() + "hPa",
-              Icon(Icons.unfold_less),
+              Icon(BetterWetterIcons.barometer),
             ),
           if (current.visibility != null)
             gridItem(
               context,
               BWLocalizations.of(context).visibility,
               current.visibility.toString() + "m",
-              Icon(Icons.crop_original),
+              Icon(BetterWetterIcons.mist),
             ),
         ],
       ),
@@ -81,12 +82,22 @@ class CurrentWeatherWidget extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             mainAxisSize: MainAxisSize.min,
             children: [
-              Text(title),
+              Text(
+                title,
+                textScaleFactor: .85,
+                style: TextStyle(
+                  color: Theme.of(context)
+                      .textTheme
+                      .bodyText2
+                      .color
+                      .withOpacity(.45),
+                ),
+              ),
               Text(text),
             ],
           ),
         ),
-        icon
+        icon,
       ],
     );
   }

@@ -18,7 +18,12 @@ class SummaryWeatherWidget extends StatelessWidget {
           style: Theme.of(context).textTheme.headline1,
           textScaleFactor: 2,
         ),
-        Text(current.desc ?? current.desc),
+        Text(
+          current.desc ?? current.name,
+          style: TextStyle(
+            color: Theme.of(context).textTheme.bodyText2.color.withOpacity(.6),
+          ),
+        ),
       ],
     );
   }
