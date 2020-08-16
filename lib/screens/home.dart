@@ -89,8 +89,8 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                         ],
                         title: ((state.locationEnabled ? 1 : 0) +
-                                    state.savedPlaces.length <=
-                                1)
+                                    state.savedPlaces.length >
+                                0)
                             ? SmoothPageIndicator(
                                 controller: _pageController,
                                 count: (state.locationEnabled ? 1 : 0) +
