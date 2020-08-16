@@ -88,20 +88,25 @@ class _HomeScreenState extends State<HomeScreen> {
                             },
                           ),
                         ],
-                        title: SmoothPageIndicator(
-                          controller: _pageController,
-                          count: max(
-                              1,
-                              (state.locationEnabled ? 1 : 0) +
-                                  state.savedPlaces.length),
-                          effect: WormEffect(
-                            dotColor:
-                                Theme.of(context).iconTheme.color.withAlpha(50),
-                            activeDotColor: Theme.of(context).iconTheme.color,
-                            dotHeight: 10,
-                            dotWidth: 10,
-                          ),
-                        ),
+                        title: ((state.locationEnabled ? 1 : 0) +
+                                    state.savedPlaces.length <=
+                                1)
+                            ? SmoothPageIndicator(
+                                controller: _pageController,
+                                count: (state.locationEnabled ? 1 : 0) +
+                                    state.savedPlaces.length,
+                                effect: WormEffect(
+                                  dotColor: Theme.of(context)
+                                      .iconTheme
+                                      .color
+                                      .withAlpha(50),
+                                  activeDotColor:
+                                      Theme.of(context).iconTheme.color,
+                                  dotHeight: 10,
+                                  dotWidth: 10,
+                                ),
+                              )
+                            : null,
                         stretch: true,
                         expandedHeight: 110,
                         flexibleSpace: FlexibleSpaceBar(
@@ -115,7 +120,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     BWLocalizations.of(context).location,
                                 style: Theme.of(context).textTheme.headline1,
                                 maxLines: 1,
-                                overflow: TextOverflow.ellipsis,
+                                overflow: TextOverflow.fade,
                               ),
                             ),
                           ),
